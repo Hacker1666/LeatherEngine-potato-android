@@ -214,6 +214,10 @@ class FreeplayState extends MusicBeatState
 		text.scrollFactor.set();
 		add(text);
 
+		#if mobileC
+		addVirtualPad(FULL, A_B_C);
+		#end
+
 		super.create();
 	}
 
@@ -386,7 +390,7 @@ class FreeplayState extends MusicBeatState
 			}
 
 			#if PRELOAD_ALL
-			if (FlxG.keys.justPressed.SPACE)
+                       if (FlxG.keys.justPressed.SPACE #if mobileC || _virtualpad.buttonC.justPressed #end)
 			{
 				destroyFreeplayVocals();
 
@@ -443,7 +447,7 @@ class FreeplayState extends MusicBeatState
 				changeSelection();
 			}
 
-			if(FlxG.keys.justPressed.ENTER && canEnterSong)
+			if(controls.ACCEPT && canEnterSong)
 			{
 				var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDiffString);
 	

@@ -199,6 +199,11 @@ class OptionsMenu extends MusicBeatState
 
 		if(FlxG.sound.music == null)
 			FlxG.sound.playMusic(MusicUtilities.GetOptionsMenuMusic(), 0.7, true);
+
+		#if mobileC
+		addVirtualPad(FULL, A_B);
+		#end
+
 	}
 
 	public static function LoadPage(Page_Name:String)
