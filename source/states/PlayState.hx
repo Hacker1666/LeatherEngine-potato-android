@@ -873,6 +873,10 @@ class PlayState extends MusicBeatState
 			iconP2.cameras = [camHUD];
 			scoreTxt.cameras = [camHUD];
 
+                #if mobileC
+                addAndroidControls();
+                #end
+
 			if(utilities.Options.getData("sideRatings") == true)
 				ratingText.cameras = [camHUD];
 
